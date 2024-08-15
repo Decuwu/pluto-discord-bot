@@ -82,6 +82,7 @@ class DiscordMessage
 	end
 
 	function edit(content)
+		if not self.id then return end
 		self.client:sendRequest("PATCH", $"/channels/{self.channel.id}/messages/{self.id}", {
 			["content"] = content
 		})
